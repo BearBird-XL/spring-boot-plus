@@ -26,6 +26,7 @@ import io.geekidea.springbootplus.generator.properties.GeneratorProperties;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 /**
  * spring-boot-plus代码生成器入口类
@@ -38,6 +39,7 @@ public class SpringBootPlusGenerator {
 
     /**
      * 生成代码
+     *
      * @param args
      */
     public static void main(String[] args) {
@@ -48,13 +50,13 @@ public class SpringBootPlusGenerator {
                 .setMavenModuleName("example")
                 .setParentPackage("com.example")
                 .setModuleName("foobar")
-                .setAuthor("geekidea")
+                .setAuthor("lei")
                 .setFileOverride(true);
 
         // 设置表信息
-        generatorProperties.addTable("foo_bar","id");
+        generatorProperties.addTable("foo_bar", "id");
         // 设置表前缀
-        // generatorProperties.setTablePrefix(Arrays.asList("tb_"));
+        generatorProperties.setTablePrefix(Collections.singletonList("gen_"));
 
         // 数据源配置
         generatorProperties.getDataSourceConfig()
